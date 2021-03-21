@@ -25,12 +25,12 @@ class Account
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $name;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private string $status;
+    private $status;
 
     public function setId(int $id): void
     {
@@ -52,12 +52,12 @@ class Account
         return $this->name;
     }
 
-    public function setStatus(string $status): void
+    public function setStatus($status): void
     {
         $this->status = $status;
     }
 
-    public function getStatus(): string
+    public function getStatus()
     {
         return $this->status;
     }

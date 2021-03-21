@@ -1,2 +1,23 @@
 framework:
-    workflows: null
+    workflows:
+        account_status:
+            type: 'workflow'
+            audit_trail:
+                enabled: true
+            marking_store:
+                type: 'method'
+                property: 'status'
+            supports:
+                - App\Entity\Account
+            initial_marking: NEW
+            places:
+                - NEW
+                - SYNCHRONIZED
+                - UNSYNCHRONIZED
+            transitions:
+                to_sync:
+                    from: NEW
+                    to: SYNCHRONIZED
+                to_unsync:
+                    from: SYNCHRONIZED
+                    to: UNSYNCHRONIZED
